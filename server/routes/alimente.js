@@ -1,4 +1,4 @@
-const Aliment = require("../models/aliment");
+const Aliment = require('../models/aliment');
 const {Op} = require("sequelize");
 const router = require('express').Router();
 
@@ -14,7 +14,7 @@ router.route('/')
         // });
 
         // http://localhost:7000/api/alimente
-        const alimente = await Aliment.findAll();
+        //const alimente = await Aliment.findAll();
         return res.status(200).json(alimente);
     }
     catch(err){

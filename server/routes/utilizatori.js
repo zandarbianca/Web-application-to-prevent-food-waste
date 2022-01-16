@@ -1,4 +1,4 @@
-const Utilizator = require("../models/utilizator");
+const Utilizator = require('../models/utilizator')
 const {Op} = require("sequelize");
 const router = require("express").Router();
 

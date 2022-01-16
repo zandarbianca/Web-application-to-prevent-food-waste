@@ -10,6 +10,8 @@ const sequelize = require("./sequelize")
 const routerAliment = require('./routes/alimente');
 const routerUtilizator = require('./routes/utilizatori');
 
+const Aliment = require("./models/aliment");
+const Utilizator = require("./models/utilizator");
 
 const app = express();
 
@@ -28,8 +30,16 @@ app.use((err, req, res, next) => {
     res.status(500).json(err)
 })
 // //definire relatii eititati
-// Utilizator.hasMany(Aliment);
+ Utilizator.hasMany(Aliment);
 
+app.get("/create",async(req,res,next) =>{
+    try{
+    await sequelize.sync({force:true});
+    res.status(201).json({message: "baza de date creata!" });}
+    catch(err){
+        next(err);
+    }
+});
 
 app.set("port", process.env.PORT || 7000);
 app.use('/utilizatori',routerUtilizator );
