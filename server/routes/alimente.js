@@ -1,8 +1,8 @@
 const Aliment = require("../models/aliment");
 const {Op} = require("sequelize");
-const router = require("express").Router();
+const router = require('express').Router();
 
-router.route("/alimente")
+router.route('/')
 .get(async(req,res) =>{
     try{
 
@@ -31,7 +31,7 @@ router.route("/alimente")
     }
 })
 
-router.route("/alimente/:id")
+router.route('/:id')
 .get(async(req,res) =>{
     // http://localhost:7000/api/alimente/2
     try{

@@ -2,7 +2,7 @@ const Utilizator = require("../models/utilizator");
 const {Op} = require("sequelize");
 const router = require("express").Router();
 
-router.route("/utilizatori")
+router.route('/')
 .get(async(req,res) =>{
     try{
 
@@ -29,7 +29,7 @@ router.route("/utilizatori")
     }
 })
 
-router.route("/utilizatori/:id")
+router.route('/:id')
 .get(async(req,res) =>{
     try{
         const utilizator = await Utilizator.findByPk(req.params.id);
