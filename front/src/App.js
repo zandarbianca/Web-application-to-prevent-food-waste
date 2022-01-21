@@ -1,4 +1,4 @@
-import Login from "./userLogin/components/Login";
+import Login from "./components/Login";
 import { useState } from 'react';
 function App() {
   const [currentPage, setCurrentPage] = useState('LogIn')
