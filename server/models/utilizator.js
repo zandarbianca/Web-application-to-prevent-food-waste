@@ -3,15 +3,15 @@ const { DataTypes } = require('sequelize')
 
 const Utilizator = sequelize.define('utilizator', {
     idUtilizator: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
     numeUtilizator: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            len: [6, 30]
+            len: [2, 30]
         }
     },
     emailUtilizator: {

@@ -3,9 +3,9 @@ const { DataTypes } = require('sequelize')
 
 const Aliment = sequelize.define('aliment', {
     idAliment: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
     numeAliment: {
         type: DataTypes.STRING,
@@ -26,15 +26,13 @@ const Aliment = sequelize.define('aliment', {
 
         }
     },
-    disponibilitateAliment:{
+    disponibilitateAliment: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
     }
-
 },
     {
         tableName: 'Aliment'
     }
-
 )
 module.exports = Aliment

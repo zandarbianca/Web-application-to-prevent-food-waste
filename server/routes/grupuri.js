@@ -1,4 +1,4 @@
-const Aliment = require('../models/aliment');
+const Grup = require('../models/grup');
 const { Op } = require("sequelize");
 const router = require('express').Router();
 
@@ -13,19 +13,17 @@ router.route('/')
             // where: cautareNumeUtilizator ? {numeUtilizator:{[Op.like]: '%UPDATEIonica'}} : undefined
             // });
 
-            // http://localhost:7000/api/alimente
-            const alimente = await Aliment.findAll();
-            return res.status(200).json(alimente);
+            const grupuri = await Grup.findAll();
+            return res.status(200).json(grupuri);
         }
         catch (err) {
             return res.status(500).json(err);
         }
     })
     .post(async (req, res) => {
-        // http://localhost:7000/api/alimente
         try {
-            const newAliment = await Aliment.create(req.body);
-            return res.status(200).json(newAliment);
+            const newGrup = await Grup.create(req.body);
+            return res.status(200).json(newGrup);
         } catch (err) {
             return res.status(500).json(err);
         }
@@ -33,11 +31,10 @@ router.route('/')
 
 router.route('/:id')
     .get(async (req, res) => {
-        // http://localhost:7000/api/alimente/2
         try {
-            const aliment = await Aliment.findByPk(req.params.id);
-            if (aliment) {
-                return res.status(200).json(aliment);
+            const grup = await Grup.findByPk(req.params.id);
+            if (grup) {
+                return res.status(200).json(grup);
             } else {
                 return res.status(404).json({ error: `nu a fost gasit id = ${req.params.id}` });
             }
@@ -48,12 +45,11 @@ router.route('/:id')
         }
     })
     .put(async (req, res) => {
-        // http://localhost:7000/api/alimente/2
         try {
-            const aliment = await Aliment.findByPk(req.params.id);
-            if (aliment) {
-                const updateAliment = await aliment.update(req.body);
-                return res.status(200).json(updateAliment);
+            const grup = await Grup.findByPk(req.params.id);
+            if (grup) {
+                const updateGrup = await grup.update(req.body);
+                return res.status(200).json(updateGrup);
             } else {
                 return res.status(404).json({ error: `nu a fost gasit id = ${req.params.id}` });
             }
