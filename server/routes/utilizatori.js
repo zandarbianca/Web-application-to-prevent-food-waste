@@ -29,6 +29,20 @@ router.route('/')
         }
     })
 
+router.post('/login', async (req, res, next) => {
+    try {
+        const user = await Utilizator.findOne({
+            where: { emailUtilizator: req.body.emailUtilizator, parolaUtilizator: req.body.parolaUtilizator }
+        })
+        if (!user) {
+            res.status(403).send('Eroare')
+        }
+        res.status(200).send(user)
+    } catch (error) {
+        next(error)
+    }
+})
+
 router.route('/:id')
     .get(async (req, res) => {
         try {
