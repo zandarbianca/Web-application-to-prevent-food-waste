@@ -1,7 +1,9 @@
 'use strict'
 
 const express = require('express');
-const sequelize = require("./sequelize")
+const sequelize = require("./sequelize");
+const cors = require('cors')
+
 
 const routerAliment = require('./routes/alimente');
 const routerUtilizator = require('./routes/utilizatori');
@@ -18,6 +20,8 @@ const app = express();
 app.use(express.urlencoded({
     exteneded: true,
 }));
+app.use(cors())
+
 app.use(express.json());
 
 

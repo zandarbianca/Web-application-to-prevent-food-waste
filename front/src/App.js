@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import logo from './logo.svg'
+import HomePage from './components/HomePage'
+import { useEffect, useState } from 'react'
+import AdaugaAliment from './components/AdaugaAliment'
 
 function App() {
+
+
+
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+
+      <nav className='nav'>
+        <a href='#' onClick={() => setCurrentPage('Home')}>
+          Home
         </a>
-      </header>
+        <a href='#' onClick={() => setCurrentPage('AdaugaAliment')}>
+          Alimente
+        </a>
+      </nav>
+
+
+      {currentPage === 'Home' && <HomePage />}
+      {currentPage === 'AdaugaAliment' && <AdaugaAliment />}
+
     </div>
   );
 }
