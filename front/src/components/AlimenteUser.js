@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ListaAlimente from './ListaAlimente'
-import Button from "@material-ui/core/Button";
-import '../css/ListAlimente.css'
 function AlimenteUser(props) {
 
     const { currentUser, } = props
@@ -21,16 +19,49 @@ function AlimenteUser(props) {
             })
     }
 
+
     useEffect(aduceListaAlimenteDinBazaDeDate, [currentUser])
 
     return (
         <>
+        <div>LISTA ALIMENTELOR USERULUI {currentUser.numeUtilizator} </div>
+
+        <div>PATISERIE</div>
             <ul className='alimente'>
                 {alimente.filter(aliment => aliment.utilizatorIdUtilizator == currentUser.idUtilizator)
-                    .map((aliment, index) => (
+                .filter(aliment => aliment.categorieAliment == "patiserie")
+                         .map((aliment, index) => (
                         <ListaAlimente key={index} item={aliment} />
                     ))}
             </ul>
+
+            <div>LEGUME</div>
+            <ul className='alimente'>
+                {alimente.filter(aliment => aliment.utilizatorIdUtilizator == currentUser.idUtilizator)
+                .filter(aliment => aliment.categorieAliment == "legume")
+                         .map((aliment, index) => (
+                        <ListaAlimente key={index} item={aliment} />
+                    ))}
+            </ul>
+
+            <div>FRUCTE</div>
+            <ul className='alimente'>
+                {alimente.filter(aliment => aliment.utilizatorIdUtilizator == currentUser.idUtilizator)
+                .filter(aliment => aliment.categorieAliment == "fructe")
+                         .map((aliment, index) => (
+                        <ListaAlimente key={index} item={aliment} />
+                    ))}
+            </ul>
+
+            <div>DULCIURI</div>
+            <ul className='alimente'>
+                {alimente.filter(aliment => aliment.utilizatorIdUtilizator == currentUser.idUtilizator)
+                .filter(aliment => aliment.categorieAliment == "dulciuri")
+                         .map((aliment, index) => (
+                        <ListaAlimente key={index} item={aliment} />
+                    ))}
+            </ul>
+
         </>
     )
 }
