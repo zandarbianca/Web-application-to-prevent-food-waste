@@ -8,9 +8,11 @@ import AdaugaAliment from './components/AdaugaAliment'
 import Login from "./components/Login";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('LogIn')
+
+  const [currentPage, setCurrentPage] = useState('Home')
+  const [user, setUser] = useState({})
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [user, setUser] = useState({});
+
   useEffect(() => {
     setIsLoggedIn(localStorage.getItem('login') || false)
   }, [])
@@ -34,9 +36,7 @@ function App() {
       {isLoggedIn && (
         <>
           <nav className='nav'>
-            <a href='#' onClick={() => setCurrentPage('LogIn')}>
-              LogIn
-            </a>
+           
             <a href='#' onClick={() => setCurrentPage('Home')}>
               Home
             </a>
