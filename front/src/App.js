@@ -7,6 +7,7 @@ import AlimenteUser from './components/AlimenteUser'
 
 
 import Login from "./components/Login";
+import AlimentForm from './components/AlimentForm';
 
 function App() {
 
@@ -37,13 +38,15 @@ function App() {
       {isLoggedIn && (
         <>
           <nav className='nav'>
-           
+
             <a href='#' onClick={() => setCurrentPage('Home')}>
               Home
             </a>
+
             <a href='#' onClick={() => setCurrentPage('AdaugaAliment')}>
               Alimente
             </a>
+
             <a href='#' onClick={() => setCurrentPage('AlimenteUser')}>
               Alimentele Mele
             </a>
@@ -51,10 +54,10 @@ function App() {
           </nav>
 
           {currentPage === 'Home' && <HomePage />}
-          {currentPage === 'AdaugaAliment' && <AdaugaAliment />}
-          {currentPage === 'AlimenteUser' && <AlimenteUser  currentUser={user} />}
+          {currentPage === 'AdaugaAliment' && <AlimentForm currentUser={user} />}
+          {currentPage === 'AlimenteUser' && <AlimenteUser currentUser={user} />}
 
-          
+
           {currentPage === 'LogIn' && <Login />}
         </>
       )}
